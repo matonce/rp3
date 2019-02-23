@@ -1,0 +1,159 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace projekt_maja_proba
+{
+    public partial class Form : System.Windows.Forms.Form
+    {
+        Naslovna naslovna;
+        Leveli leveli;
+        internal Vjezbe vjezbe;
+        VjezbeSLevela vjezbeSLevela;
+        Tipkanje tipkanje;
+        SpremljeneVjezbe spremljeneVjezbe;
+
+        public RadSBazom radSBazom = new RadSBazom();
+        int indeksVjezbe;
+        int indeksLevela;
+
+        public Form()
+        {
+            InitializeComponent();
+
+            //KeyPress += new KeyPressEventHandler(PritisnutaTipka);
+
+            Controls.Clear();
+            naslovna = new Naslovna(this);
+            leveli = new Leveli(this);
+            vjezbe = new Vjezbe(this);
+            vjezbeSLevela = new VjezbeSLevela(this);
+            tipkanje = new Tipkanje(this, 0);
+            spremljeneVjezbe = new SpremljeneVjezbe(this);
+
+            naslov.Location = new Point((ClientSize.Width - naslov.Size.Width) / 2, ClientSize.Height/5);
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+        }
+        
+        private void PritisnutaTipka(object sender, KeyPressEventArgs e)
+        {
+            tipkanje.kontrolaZaTipkanje.KeyDownHandler(sender, e);
+        }
+
+        internal void prikazNaslovne()
+        {
+            BackgroundImage = ((Image)(Properties.Resources.ResourceManager.GetObject("$this.BackgroundImage")));
+            BackgroundImageLayout = ImageLayout.Stretch;
+            BackColor = Color.White;
+
+            naslovna.promijeniVidljivost(true);
+        }
+
+        internal void prikazZaVjezbe()
+        {
+            BackgroundImage = null;
+            BackColor = Color.BlanchedAlmond;
+
+            vjezbe.promijeniVidljivost(true);
+        }
+
+        internal void prikazLevela()
+        {
+            BackgroundImage = null;
+            BackColor = Color.White;
+
+            leveli.promijeniVidljivost(true);
+        }
+
+        internal void prikazSpremljenihVjezbi()
+        {
+            BackgroundImage = null;
+            BackColor = Color.White;
+
+            spremljeneVjezbe.promijeniVidljivost(true);
+        }
+
+        internal void prikazVjezbiSLevela(int indeksLevela)
+        {
+            if (indeksLevela != -1)
+                this.indeksLevela = indeksLevela;
+
+            //leveli.promijeniVidljivost(false);
+            //tipkanje.promijeniVidljivost(false, "");
+            vjezbeSLevela.promijeniVidljivost(true, this.indeksLevela);
+            Console.WriteLine("");
+        }
+
+        internal void prikazTipkanja(string stringovi, int indeksVjezbe) // pripremljene vjezbe
+        {
+            this.indeksVjezbe = indeksVjezbe;
+
+            BackColor = Color.White;
+
+            vjezbeSLevela.promijeniVidljivost(false, -1);
+            tipkanje.promijeniVidljivost(true, stringovi);
+
+            KeyPress += PritisnutaTipka;
+        }
+
+        internal void prikazTipkanjaZaVjezbe(List<String> stringovi) // custom vjezbe
+        {
+            BackColor = Color.White;
+
+            vjezbe.promijeniVidljivost(false);
+            tipkanje.promijeniVidljivostZaVjezbe(true, stringovi);
+
+            KeyPress += PritisnutaTipka;
+        }
+
+        internal void onemoguciReagiranjeNaTipke()
+        {
+            KeyPress -= PritisnutaTipka;
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        internal int obnoviStatističkePodatke(double brzina, double preciznost)
+        {
+            return radSBazom.obnoviPodatke(indeksVjezbe, brzina, preciznost);
+        }
+
+        internal bool imaLiUvjeta()
+        {
+            Console.WriteLine("usao u form");
+            return radSBazom.imaLiUvjeta(indeksVjezbe);
+        }
+
+        internal void dodajVjezbu(String ime, int br_slova, int br_rijeci, String slova)
+        {
+            radSBazom.dodajVjezbu(ime, br_slova, br_rijeci, slova);
+        }
+
+        internal void prikazZaSljedećuVježbuIliPopisLevela() // pripremljene vj
+        {
+            String s = radSBazom.otkljucajNovuVjezbu(indeksVjezbe, indeksLevela);
+
+            if (s == "") // ovo je bila posljednja vjezba u trenutnom levelu - odi na popis levela
+            {
+                prikazLevela();
+            }
+            else // prikaz vjezbe nakon ove; njen task je u 's'
+            {
+                Console.WriteLine("stringic je " + s);
+                prikazTipkanja(s, indeksVjezbe + 1);
+            }
+        }
+    }
+}
