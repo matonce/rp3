@@ -113,10 +113,9 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 88);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 79);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(786, 127);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // tableLayoutPanel1

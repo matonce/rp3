@@ -79,7 +79,7 @@ namespace projekt_maja_proba
             prikaziString(); // ova fja ubacuje slova kao labele (svako slovo jedna labela, da mogu underlineati lakse...)
 
             form.KeyPreview = true; // ovo je valjda potrebno da mogu pozvati fju KeyDownHandler
-            KeyPress += new KeyPressEventHandler(KeyDownHandler);
+            //KeyPress += new KeyPressEventHandler(KeyDownHandler);
 
             nakonObradenePritisnuteTipke(); // ovdje se sve događa (i to se poziva odmah pri isteku, pa ce se onda inicijalizirati one currentButton 
                                          // i currentLabel labele i uvjet u KeyDownHandler ce biti ok (manje bitno))
@@ -161,6 +161,7 @@ namespace projekt_maja_proba
                         + "Brzina: " + brzina + " wpm."); // words per minute, rijec se standradno valjda uzima kao da ima 5 slova, a u 'tocno' mi se nalazi broj slova u vjezbi
                                                           // dijelim sa 60000 jer ms pretvaram u min
 
+                    form.onemoguciReagiranjeNaTipke();
                     form.prikazZaSljedećuVježbuIliPopisLevela();
                 }
             }
@@ -198,6 +199,7 @@ namespace projekt_maja_proba
             }
 
             trenutnoSlovo = (Label)flowLayoutPanel1.GetNextControl(trenutnoSlovo, true); // sada se pomakni na sljedecu tipku
+            Console.WriteLine("trenutno slovo je: " + trenutnoSlovo.Text);
             trenutnoSlovo.Font = new Font("Yu Gothic", 35, FontStyle.Underline); // i podcrtaj ju
         }
 
@@ -228,6 +230,8 @@ namespace projekt_maja_proba
 
         public void KeyDownHandler(object sender, KeyPressEventArgs e)
         {
+            Console.WriteLine("stisnuto je " + e.KeyChar.ToString() + ", a trazena tipka je " + trenutnoSlovo.Text);
+
             if (e.KeyChar.ToString() == trenutnoSlovo.Text)
             {
                 form.radSBazom.povecaj(trenutnoSlovo.Text, "Tocno");
@@ -243,7 +247,6 @@ namespace projekt_maja_proba
             // ili ne moraju biti isti ako je oznacen onaj drugi checkbox
             if (e.KeyChar.ToString() == trenutnoSlovo.Text || checkBox2.Checked == true)
             {
-                //Console.WriteLine(e.KeyChar.ToString());
                 nakonObradenePritisnuteTipke();
             }
         }
