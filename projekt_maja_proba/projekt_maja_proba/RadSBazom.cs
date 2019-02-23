@@ -16,8 +16,8 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
         int procitano;
 
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-            //@"Data source= C:\Users\Ana\Desktop\Faks\rp3\projekt_maja_proba\baza.mdb";
-            @"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
+            @"Data source= C:\Users\Ana\Desktop\Faks\rp3\projekt_maja_proba\baza.mdb";
+        //@"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
 
         public RadSBazom()
         {
@@ -26,7 +26,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
 
         public List<Tuple<string, int>> popisLevelaIzBaze()
         {
-            List< Tuple<string, int>> naziviLevela = new List<Tuple<string, int>>();
+            List<Tuple<string, int>> naziviLevela = new List<Tuple<string, int>>();
 
             try
             {
@@ -180,7 +180,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
                 connection.Open();
 
                 Console.WriteLine("indeks vjezbe, brzina, preciznost: " + indeksVjezbe + ", " + brzina + ", " + preciznost);
-                
+
                 OleDbCommand command = new OleDbCommand("update VjezbeSLevela set Naj_brzina = @brzina, Naj_preciznost = @preciznost "
                     + "where ID = @indeksVjezbe and Naj_brzina < @brzina and Naj_preciznost < @preciznost", connection);
                 command.Parameters.AddWithValue("@brzina", brzina);
@@ -292,9 +292,60 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
                 if (connection != null)
                     connection.Close();
             }
+
+            //trebam srediti i omjer sada
+            try
+            {
+                int tocno = 0, netocno = 0;
+                double omjer;
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from Slova where Slovo = @slovo", connection);
+                OleDbParameter parameter = new OleDbParameter();
+                parameter.ParameterName = "@slovo";
+                if (slovo == " ") parameter.Value = "space";
+                else parameter.Value = slovo;
+
+                command.Parameters.Add(parameter);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    tocno = (int)reader["Tocno"];
+                    netocno = (int)reader["Netocno"];
+                }
+
+                if (tocno + netocno != 0) omjer = Math.Round((double)(tocno * 100) / (tocno + netocno), 2);
+                else omjer = -1;
+
+                OleDbCommand command2 = new OleDbCommand("update Slova set omjer = @omjer where Slovo = @slovo", connection);
+
+                OleDbParameter parameter3 = new OleDbParameter();
+                parameter3.ParameterName = "@omjer";
+                parameter3.Value = omjer;
+                command2.Parameters.Add(parameter3);
+
+                OleDbParameter parameter4 = new OleDbParameter();
+                parameter4.ParameterName = "@slovo";
+                if (slovo == " ") parameter4.Value = "space";
+                else parameter4.Value = slovo;
+                command2.Parameters.Add(parameter4);
+
+                command2.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (connection != null)
+                    connection.Close();
+            }
         }
 
-        internal void dodajVjezbu (String ime, int br_slova, int br_rijeci, String slova)
+        internal void dodajVjezbu(String ime, int br_slova, int br_rijeci, String slova)
         {
             try
             {
@@ -350,7 +401,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             return nizStringova;
         }
 
-        internal List<Tuple<int, int, string>> nadiSpremljenuVjezbu (String ime)
+        internal List<Tuple<int, int, string>> nadiSpremljenuVjezbu(String ime)
         {
             List<Tuple<int, int, string>> ret = new List<Tuple<int, int, string>>();
 
@@ -378,6 +429,124 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
                     connection.Close();
             }
             return ret;
+        }
+
+        internal List<Tuple<double, double>> dohvatiZadnjeRezultate()
+        {
+            List<Tuple<double, double>> ret = new List<Tuple<double, double>>();
+
+            try
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from Statistika", connection);
+
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                    ret.Add(new Tuple<double, double>((double)reader["Brzina"], (double)reader["Preciznost"]));
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (connection != null)
+                    connection.Close();
+            }
+            return ret;
+        }
+
+        internal void dodajRezultat(double brzina, double preciznost)
+        {
+            try
+            {
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand("insert into Statistika ([Brzina],[Preciznost]) " +
+                    "values (@brzina, @preciznost)", connection);
+                command.Parameters.AddWithValue("@brzina", brzina);
+                command.Parameters.AddWithValue("@preciznost", preciznost);
+
+                command.ExecuteNonQuery();
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+
+        public List<Tuple<String, double>> dohvatiNajgoraSlova()
+        {
+            List<Tuple<String, double>> flopSlova = new List<Tuple<String, double>>();
+            try
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from Slova order by Omjer asc", connection);
+                int i = (int)command.ExecuteScalar();
+                reader = command.ExecuteReader();
+                int br = 0;
+                while (reader.Read())
+                {
+                    br++;
+                    if ((double)reader["Omjer"] != -1) flopSlova.Add(new Tuple<String, double>(reader["Slovo"].ToString(), (double)reader["Omjer"]));
+                    if (br == 5) break;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (connection != null)
+                    connection.Close();
+            }
+            return flopSlova;
+        }
+
+        public List<Tuple<String, double>> dohvatiNajboljaSlova()
+        {
+            List<Tuple<String, double>> topSlova = new List<Tuple<String, double>>();
+            try
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select * from Slova order by Omjer desc", connection);
+                int i = (int)command.ExecuteScalar();
+                reader = command.ExecuteReader();
+                int br = 0;
+                while (reader.Read())
+                {
+                    br++;
+                    if ((double)reader["Omjer"] != -1) topSlova.Add(new Tuple<String, double>(reader["Slovo"].ToString(), (double)reader["Omjer"]));
+                    if (br == 5) break;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (connection != null)
+                    connection.Close();
+            }
+            return topSlova;
         }
     }
 }
