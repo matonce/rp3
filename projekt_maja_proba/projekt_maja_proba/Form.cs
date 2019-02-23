@@ -158,16 +158,22 @@ namespace projekt_maja_proba
             else
             {
                 Console.WriteLine("tu sam, prikazujem levele ili sljed vj");
-                String s = radSBazom.otkljucajNovuVjezbu(indeksVjezbe, indeksLevela);
+                Tuple<String, String> rez = radSBazom.otkljucajNovuVjezbu(indeksVjezbe, indeksLevela);
 
-                if (s == "") // ovo je bila posljednja vjezba u trenutnom levelu - odi na popis levela
+                if (rez.Item1 == "") // ovo je bila posljednja vjezba u trenutnom levelu - odi na popis levela
                 {
+                    if (rez.Item2 != "")
+                        MessageBox.Show("Otključan je novi level!");
+                    else
+                        MessageBox.Show("Svi leveli su prijeđeni!");
+                    tipkanje.promijeniVidljivostZaVjezbe(false, null);
                     prikazLevela();
                 }
                 else // prikaz vjezbe nakon ove; njen task je u 's'
                 {
-                    Console.WriteLine("stringic je " + s);
-                    prikazTipkanja(s, indeksVjezbe + 1);
+                    Console.WriteLine("stringic je " + rez.Item2);
+                    MessageBox.Show("Slijedi vježba \"" + rez.Item1 + "\".");
+                    prikazTipkanja(rez.Item2, indeksVjezbe + 1);
                 }
             }
         }

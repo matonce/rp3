@@ -89,9 +89,9 @@ namespace projekt_maja_proba //bla
             return indeksiVjezbi;
         }
 
-        internal String otkljucajNovuVjezbu(int indeksVjezbe, int indeksLevela)
+        internal Tuple<String, String> otkljucajNovuVjezbu(int indeksVjezbe, int indeksLevela)
         {
-            String s = "";
+            Tuple<String, String> rezultat = null;
             try
             {
                 connection.Open();
@@ -102,24 +102,29 @@ namespace projekt_maja_proba //bla
                 command.ExecuteNonQuery();*/
 
                 // ucini sljedecu vjezbu dostupnom, ak je ima
-                OleDbCommand command = new OleDbCommand("update VjezbeSLevela set Otključana = 1 where ID = @indeksVjezbe", connection);
+                OleDbCommand command = new OleDbCommand("update VjezbeSLevela set Otključana = 1 where ID = @indeksVjezbe and ID_levela=@indeksLevela", connection);
                 command.Parameters.AddWithValue("@indeksVjezbe", indeksVjezbe + 1);
+                command.Parameters.AddWithValue("@indeksLevela", indeksLevela);
 
                 if (command.ExecuteNonQuery() != 0)
                 {
-                    command = new OleDbCommand("select Stringovi from VjezbeSLevela where ID = @indeksVjezbe", connection);
+                    command = new OleDbCommand("select Naziv, Stringovi from VjezbeSLevela where ID = @indeksVjezbe", connection);
                     command.Parameters.AddWithValue("@indeksVjezbe", indeksVjezbe + 1);
                     reader = command.ExecuteReader();
 
                     reader.Read();
-                    s = reader["Stringovi"].ToString();
+                    rezultat = new Tuple<String, String>(reader["Naziv"].ToString(), reader["Stringovi"].ToString());
                 }
                 // ako nema sljedece vjezbe, zavrsen je ovaj level i otkljucava se drugi
                 else
                 {
                     command = new OleDbCommand("update Leveli set Otključan = 1 where ID = @indeksLevela", connection);
                     command.Parameters.AddWithValue("@indeksLevela", indeksLevela + 1);
-                    command.ExecuteNonQuery();
+
+                    if (command.ExecuteNonQuery() == 1)
+                        rezultat = new Tuple<String, String>("", " "); // samo želim razlikovati ovaj slučaj od slučaja kada nemamo više levela
+                    else
+                        rezultat = new Tuple<String, String>("", "");
                 }
             }
             catch (Exception e)
@@ -132,7 +137,7 @@ namespace projekt_maja_proba //bla
                     connection.Close();
             }
 
-            return s;
+            return rezultat;
         }
 
         internal bool imaLiUvjeta(int indeksVjezbe)
