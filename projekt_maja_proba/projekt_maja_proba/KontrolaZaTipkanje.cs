@@ -161,8 +161,8 @@ namespace projekt_maja_proba
                         + "Brzina: " + brzina + " wpm."); // words per minute, rijec se standradno valjda uzima kao da ima 5 slova, a u 'tocno' mi se nalazi broj slova u vjezbi
                                                           // dijelim sa 60000 jer ms pretvaram u min
 
-                    form.onemoguciReagiranjeNaTipke();
-                    form.prikazZaSljedećuVježbuIliPopisLevela();
+                    Console.WriteLine("ovdje pozivam onu fju u form");
+                    form.prikazSljedeceg();
                 }
             }
         }
@@ -199,7 +199,7 @@ namespace projekt_maja_proba
             }
 
             trenutnoSlovo = (Label)flowLayoutPanel1.GetNextControl(trenutnoSlovo, true); // sada se pomakni na sljedecu tipku
-            Console.WriteLine("trenutno slovo je: " + trenutnoSlovo.Text);
+            //Console.WriteLine("trenutno slovo je: " + trenutnoSlovo.Text);
             trenutnoSlovo.Font = new Font("Yu Gothic", 35, FontStyle.Underline); // i podcrtaj ju
         }
 
@@ -230,7 +230,7 @@ namespace projekt_maja_proba
 
         public void KeyDownHandler(object sender, KeyPressEventArgs e)
         {
-            Console.WriteLine("stisnuto je " + e.KeyChar.ToString() + ", a trazena tipka je " + trenutnoSlovo.Text);
+            //Console.WriteLine("stisnuto je " + e.KeyChar.ToString() + ", a trazena tipka je " + trenutnoSlovo.Text);
 
             if (e.KeyChar.ToString() == trenutnoSlovo.Text)
             {

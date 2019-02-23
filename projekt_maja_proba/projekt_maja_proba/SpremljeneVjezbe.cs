@@ -49,7 +49,7 @@ namespace projekt_maja_proba
         private void buttonNatrag_Click(object sender, EventArgs e)
         {
             promijeniVidljivost(false);
-            form.prikazLevela();
+            form.prikazZaVjezbe();
         }
 
         public void promijeniVidljivost(bool value)

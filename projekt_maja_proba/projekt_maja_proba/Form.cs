@@ -23,6 +23,8 @@ namespace projekt_maja_proba
         int indeksVjezbe;
         int indeksLevela;
 
+        int trenutno = 0;
+
         public Form()
         {
             InitializeComponent();
@@ -76,21 +78,24 @@ namespace projekt_maja_proba
 
         internal void prikazSpremljenihVjezbi()
         {
+            trenutno = 1;
+
             BackgroundImage = null;
             BackColor = Color.White;
-
+            
             spremljeneVjezbe.promijeniVidljivost(true);
         }
 
         internal void prikazVjezbiSLevela(int indeksLevela)
         {
+            trenutno = 2;
+
             if (indeksLevela != -1)
                 this.indeksLevela = indeksLevela;
 
             //leveli.promijeniVidljivost(false);
             //tipkanje.promijeniVidljivost(false, "");
             vjezbeSLevela.promijeniVidljivost(true, this.indeksLevela);
-            Console.WriteLine("");
         }
 
         internal void prikazTipkanja(string stringovi, int indeksVjezbe) // pripremljene vjezbe
@@ -141,18 +146,29 @@ namespace projekt_maja_proba
             radSBazom.dodajVjezbu(ime, br_slova, br_rijeci, slova);
         }
 
-        internal void prikazZaSljedećuVježbuIliPopisLevela() // pripremljene vj
+        internal void prikazSljedeceg() // pripremljene vj
         {
-            String s = radSBazom.otkljucajNovuVjezbu(indeksVjezbe, indeksLevela);
+            onemoguciReagiranjeNaTipke();
 
-            if (s == "") // ovo je bila posljednja vjezba u trenutnom levelu - odi na popis levela
+            if (trenutno == 1)
             {
-                prikazLevela();
+                tipkanje.promijeniVidljivostZaVjezbe(false, null);
+                prikazSpremljenihVjezbi();
             }
-            else // prikaz vjezbe nakon ove; njen task je u 's'
+            else
             {
-                Console.WriteLine("stringic je " + s);
-                prikazTipkanja(s, indeksVjezbe + 1);
+                Console.WriteLine("tu sam, prikazujem levele ili sljed vj");
+                String s = radSBazom.otkljucajNovuVjezbu(indeksVjezbe, indeksLevela);
+
+                if (s == "") // ovo je bila posljednja vjezba u trenutnom levelu - odi na popis levela
+                {
+                    prikazLevela();
+                }
+                else // prikaz vjezbe nakon ove; njen task je u 's'
+                {
+                    Console.WriteLine("stringic je " + s);
+                    prikazTipkanja(s, indeksVjezbe + 1);
+                }
             }
         }
     }
