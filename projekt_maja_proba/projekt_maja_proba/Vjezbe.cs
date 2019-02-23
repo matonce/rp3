@@ -233,18 +233,22 @@ namespace projekt_maja_proba
 
         private void generirajButton_Click(object sender, EventArgs e)
         {
-            promijeniVidljivost(false);
-            br_rijeci_gen = (int)numBrojRijeci_gen.Value;
-            br_slova = (int)numBrojSlova_gen.Value;
+            List<String> slova = dohvatiOznacenaSlova();
 
-            List<String> slova = new List<String>();
-            slova = dohvatiOznacenaSlova();
+            if (slova.Count > 0)
+            {
+                promijeniVidljivost(false);
+                br_rijeci_gen = (int)numBrojRijeci_gen.Value;
+                br_slova = (int)numBrojSlova_gen.Value;
 
-            List<String> stringovi = new List<String>();
-            stringovi = generirajVjezbu(br_rijeci_gen, br_slova, slova);
+                List<String> stringovi = new List<String>();
+                stringovi = generirajVjezbu(br_rijeci_gen, br_slova, slova);
 
-            for (int i = 0; i < stringovi.Count; i++) Console.WriteLine(stringovi[i]);
-            form.prikazTipkanjaZaVjezbe(stringovi);
+                for (int i = 0; i < stringovi.Count; i++) Console.WriteLine(stringovi[i]);
+                form.prikazTipkanjaZaVjezbe(stringovi);
+            }
+            else
+                MessageBox.Show("Označi barem jedno slovo!", "Upozorenje");
         }
 
         public List<String> generirajVjezbu(int broj_rijeci, int broj_slova, List<String> listaSlova)
@@ -291,6 +295,7 @@ namespace projekt_maja_proba
 
                     flowLayoutPanel.Controls.Add(slovo);
                     listaCheckBoxova.Add(slovo);
+                    textBox.Text = "";
                 }
             }
             else
@@ -316,7 +321,7 @@ namespace projekt_maja_proba
             int br_rijeci, br_slova;
             if (textBox.Text == "")
             {
-                MessageBox.Show("Potrebno je unijeti ime vježbe, ako ju želite spremiti!");
+                MessageBox.Show("Potrebno je unijeti ime vježbe, ako ju želite spremiti!", "Upozorenje");
                 return;
             }
             ime = textBox.Text.ToString();

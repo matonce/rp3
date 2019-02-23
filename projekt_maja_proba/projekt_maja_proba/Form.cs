@@ -67,6 +67,8 @@ namespace projekt_maja_proba
 
         internal void prikazZaVjezbe()
         {
+            trenutno = 1;
+
             BackgroundImage = null;
             BackColor = Color.BlanchedAlmond;
 
@@ -91,7 +93,7 @@ namespace projekt_maja_proba
 
         internal void prikazSpremljenihVjezbi()
         {
-            trenutno = 1;
+            trenutno = 2;
 
             BackgroundImage = null;
             BackColor = Color.White;
@@ -101,7 +103,7 @@ namespace projekt_maja_proba
 
         internal void prikazVjezbiSLevela(int indeksLevela)
         {
-            trenutno = 2;
+            trenutno = 3;
 
             if (indeksLevela != -1)
                 this.indeksLevela = indeksLevela;
@@ -164,6 +166,11 @@ namespace projekt_maja_proba
             onemoguciReagiranjeNaTipke();
 
             if (trenutno == 1)
+            {
+                tipkanje.promijeniVidljivostZaVjezbe(false, null);
+                prikazZaVjezbe();
+            }
+            else if (trenutno == 2)
             {
                 tipkanje.promijeniVidljivostZaVjezbe(false, null);
                 prikazSpremljenihVjezbi();
