@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projekt_maja_proba //bla
+namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim levelima uvijek otključane 
+                             // jer se njima ionako može pristupiti tek kad otključamo level u kojem se nalaze
 {
     public class RadSBazom
     {
@@ -115,7 +116,7 @@ namespace projekt_maja_proba //bla
                     reader.Read();
                     rezultat = new Tuple<String, String>(reader["Naziv"].ToString(), reader["Stringovi"].ToString());
                 }
-                // ako nema sljedece vjezbe, zavrsen je ovaj level i otkljucava se drugi
+                // ako nema sljedece vjezbe, zavrsen je ovaj level i otkljucava se drugi ako ga ima
                 else
                 {
                     command = new OleDbCommand("update Leveli set Otključan = 1 where ID = @indeksLevela", connection);

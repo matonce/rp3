@@ -38,12 +38,26 @@ namespace projekt_maja_proba
             Visible = false
         };
 
+        Label level = new Label()
+        {
+            Font = new Font("Microsoft JhengHei", 35F),
+            ForeColor = Color.RosyBrown,
+            // Location = new Point(473, 12),
+            Name = "level",
+            Text = "Leveli",
+            Size = new Size(150, 60),
+            Visible = false
+        };
+
         public Leveli(Form form)
         {
             this.form = form;
 
             flowLayoutPanel1.Parent = form;
             buttonNatragNaNaslovnu.Parent = form;
+            level.Parent = form;
+
+            level.Location = new Point(form.ClientSize.Width / 2 - 50, 12);
 
             buttonNatragNaNaslovnu.BringToFront();
             buttonNatragNaNaslovnu.Click += new EventHandler(buttonNatragNaNaslovnu_Click);
@@ -88,7 +102,7 @@ namespace projekt_maja_proba
                 flowLayoutPanel1.Controls.Clear();
                 //naziviLevela.Clear();
             }
-            flowLayoutPanel1.Visible = buttonNatragNaNaslovnu.Visible = value;
+            level.Visible = flowLayoutPanel1.Visible = buttonNatragNaNaslovnu.Visible = value;
             Console.WriteLine("promijenjena vidljivost od levela na " + value);
         }
 
