@@ -61,7 +61,7 @@
             this.vjezba.BackColor = System.Drawing.Color.Transparent;
             this.vjezba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.vjezba.Font = new System.Drawing.Font("Courier New", 15F, System.Drawing.FontStyle.Bold);
-            this.vjezba.ForeColor = System.Drawing.Color.Gray;
+            this.vjezba.ForeColor = System.Drawing.Color.DimGray;
             this.vjezba.Location = new System.Drawing.Point(671, 237);
             this.vjezba.Name = "vjezba";
             this.vjezba.Size = new System.Drawing.Size(210, 40);
@@ -86,7 +86,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1060, 531);
             this.Controls.Add(this.naslov);
             this.Controls.Add(this.vjezba);

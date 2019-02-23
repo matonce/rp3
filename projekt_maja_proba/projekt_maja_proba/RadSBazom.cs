@@ -16,8 +16,8 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
         int procitano;
 
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-            @"Data source= C:\Users\Ana\Desktop\Faks\rp3\projekt_maja_proba\baza.mdb";
-        //@"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
+            // @"Data source= C:\Users\Ana\Desktop\Faks\rp3\projekt_maja_proba\baza.mdb";
+        @"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
 
         public RadSBazom()
         {

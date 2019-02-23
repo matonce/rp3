@@ -40,12 +40,12 @@ namespace projekt_maja_proba
 
         Label level = new Label()
         {
-            Font = new Font("Microsoft JhengHei", 35F),
+            Font = new Font("Courier New", 35F),
             ForeColor = Color.RosyBrown,
             // Location = new Point(473, 12),
             Name = "level",
             Text = "Leveli",
-            Size = new Size(150, 60),
+            Size = new Size(200, 60),
             Visible = false
         };
 
@@ -81,7 +81,7 @@ namespace projekt_maja_proba
                     Button button = new Button()
                     {
                         BackColor = Color.RosyBrown,
-                        Font = new Font("Microsoft JhengHei", 12F),
+                        Font = new Font("Courier New", 12F),
                         ForeColor = Color.Snow,
                         Name = "buttonLevel" + (i + 1).ToString(),
                         Size = new Size(105, 105),

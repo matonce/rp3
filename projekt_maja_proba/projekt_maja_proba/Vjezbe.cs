@@ -19,7 +19,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojRijeci = new NumericUpDown()
         {
-            Location = new Point(750, 150),
+            Location = new Point(825, 150),
             Maximum = new decimal(new int[] {50,0,0,0}),
             Minimum = new decimal(new int[] {1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -32,19 +32,19 @@ namespace projekt_maja_proba
         Label brojRijeci = new Label()
         {
             AutoSize = true,
-            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(600, 150),
             Name = "broj_riječi",
             Size = new Size(128, 20),
             TabIndex = 1,
-            Text = "Broj riječi u vježbi",
+            Text = "Broj riječi u vježbi:",
             Visible = false
         };
 
         Label imeVjezbe = new Label()
         {
             AutoSize = true,
-            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 440),
             Name = "broj_riječi",
             Size = new Size(128, 20),
@@ -55,8 +55,8 @@ namespace projekt_maja_proba
         TextBox textBox = new TextBox()
         {
             AutoSize = true,
-            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
-            Location = new Point(200, 440),
+            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Location = new Point(170, 440),
             Name = "ime_tb",
             Size = new Size(128, 20),
             Text = "",
@@ -65,7 +65,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojRijeci_gen = new NumericUpDown()
         {
-            Location = new Point(200, 380),
+            Location = new Point(275, 380),
             Maximum = new decimal(new int[] { 50, 0, 0, 0 }),
             Minimum = new decimal(new int[] { 1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -78,18 +78,18 @@ namespace projekt_maja_proba
         Label brojRijeci_gen = new Label()
         {
             AutoSize = true,
-            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 380),
             Name = "broj_riječi",
             Size = new Size(128, 20),
             TabIndex = 1,
-            Text = "Broj riječi u vježbi",
+            Text = "Broj riječi u vježbi:",
             Visible = false
         };
 
         NumericUpDown numBrojSlova_gen = new NumericUpDown()
         {
-            Location = new Point(200, 410),
+            Location = new Point(285, 410),
             Maximum = new decimal(new int[] { 15, 0, 0, 0 }),
             Minimum = new decimal(new int[] { 1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -102,12 +102,12 @@ namespace projekt_maja_proba
         Label brojSlova_gen = new Label()
         {
             AutoSize = true,
-            Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 410),
             Name = "broj_riječi",
             Size = new Size(128, 20),
             TabIndex = 1,
-            Text = "Broj slova u riječima",
+            Text = "Broj slova u riječima:",
             Visible = false
         };
 
@@ -127,7 +127,7 @@ namespace projekt_maja_proba
         {
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
-            Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(600, 81),
             Name = "nova_igra",
             Size = new Size(186, 24),
@@ -140,7 +140,7 @@ namespace projekt_maja_proba
         {
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
-            Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(600, 300),
             Name = "pregled",
             Size = new Size(186, 24),
@@ -153,7 +153,7 @@ namespace projekt_maja_proba
         {
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
-            Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 480),
             Name = "nova_igra",
             Size = new Size(186, 24),
@@ -166,7 +166,7 @@ namespace projekt_maja_proba
         {
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
-            Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 81),
             Name = "generiraj_vjezbu",
             Size = new Size(186, 24),
@@ -178,7 +178,7 @@ namespace projekt_maja_proba
         Button buttonNatragNaNaslovnu = new Button()
         {
             BackColor = Color.SeaShell,
-            Font = new Font("Microsoft JhengHei", 7F),
+            Font = new Font("Courier New", 7F),
             Location = new Point(50, 12),
             Name = "buttonNatragNaNaslovnu",
             Size = new Size(100, 40),
@@ -282,7 +282,7 @@ namespace projekt_maja_proba
                     CheckBox slovo = new CheckBox()
                     {
                         BackColor = Color.RosyBrown,
-                        Font = new Font("Microsoft JhengHei", 12F),
+                        Font = new Font("Courier New", 12F),
                         ForeColor = Color.Snow,
                         Name = abeceda.ElementAt(i),
                         Text = abeceda.ElementAt(i),

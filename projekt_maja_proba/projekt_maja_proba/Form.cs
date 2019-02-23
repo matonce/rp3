@@ -46,6 +46,8 @@ namespace projekt_maja_proba
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
+
+            BackgroundImage = null;
         }
         
         private void PritisnutaTipka(object sender, KeyPressEventArgs e)
@@ -55,8 +57,9 @@ namespace projekt_maja_proba
 
         internal void prikazNaslovne()
         {
-            BackgroundImage = ((Image)(Properties.Resources.ResourceManager.GetObject("$this.BackgroundImage")));
-            BackgroundImageLayout = ImageLayout.Stretch;
+            //BackgroundImage = ((Image)(Properties.Resources.ResourceManager.GetObject("$this.BackgroundImage")));
+            //BackgroundImageLayout = ImageLayout.Stretch;
+            BackgroundImage = null;
             BackColor = Color.White;
 
             naslovna.promijeniVidljivost(true);
