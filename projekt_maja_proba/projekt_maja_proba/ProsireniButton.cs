@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projekt_maja_proba
 {
-    public partial class ProšireniButton : UserControl
+    public partial class ProsireniButton : UserControl
     {
-        public ProšireniButton()
+        public ProsireniButton()
         {
             InitializeComponent();
         }
