@@ -18,6 +18,7 @@ namespace projekt_maja_proba
         VjezbeSLevela vjezbeSLevela;
         Tipkanje tipkanje;
         SpremljeneVjezbe spremljeneVjezbe;
+        VidiStatistiku vidiStatistiku;
 
         public RadSBazom radSBazom = new RadSBazom();
         int indeksVjezbe;
@@ -38,6 +39,7 @@ namespace projekt_maja_proba
             vjezbeSLevela = new VjezbeSLevela(this);
             tipkanje = new Tipkanje(this, 0);
             spremljeneVjezbe = new SpremljeneVjezbe(this);
+            vidiStatistiku = new VidiStatistiku(this);
 
             naslov.Location = new Point((ClientSize.Width - naslov.Size.Width) / 2, ClientSize.Height/5);
 
@@ -66,6 +68,14 @@ namespace projekt_maja_proba
             BackColor = Color.BlanchedAlmond;
 
             vjezbe.promijeniVidljivost(true);
+        }
+
+        internal void prikazStatistike()
+        {
+            BackgroundImage = null;
+            BackColor = Color.BlanchedAlmond;
+
+            vidiStatistiku.promijeniVidljivost(true);
         }
 
         internal void prikazLevela()

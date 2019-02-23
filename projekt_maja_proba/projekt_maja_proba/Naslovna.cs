@@ -28,6 +28,21 @@ namespace projekt_maja_proba
             UseVisualStyleBackColor = false
         };
 
+        Button vidiStatistiku = new Button()
+        {
+            AutoEllipsis = true,
+            BackColor = Color.Transparent,
+            BackgroundImageLayout = ImageLayout.None,
+            FlatStyle = FlatStyle.Popup,
+            Font = new Font("Courier New", 15F, FontStyle.Bold),
+            ForeColor = Color.Gray,
+            Location = new Point(800, 450),
+            Name = "vidiStatitsku",
+            Size = new Size(210, 40),
+            Text = "Statistika",
+            UseVisualStyleBackColor = false
+        };
+
         Button vjezba = new Button()
         {
             AutoEllipsis = true,
@@ -64,9 +79,11 @@ namespace projekt_maja_proba
             igrajLevele.Parent = form;
             vjezba.Parent = form;
             naslov.Parent = form;
+            vidiStatistiku.Parent = form;
 
             vjezba.Click += new EventHandler(vjezba_Click);
             igrajLevele.Click += new EventHandler(igrajLevele_Click);
+            vidiStatistiku.Click += new EventHandler(vidiStatistiku_Click);
         }
 
         private void igrajLevele_Click(object sender, EventArgs e)
@@ -82,10 +99,17 @@ namespace projekt_maja_proba
 
             form.prikazZaVjezbe();
         }
-        
+
+        private void vidiStatistiku_Click(object sender, EventArgs e)
+        {
+            promijeniVidljivost(false);
+
+            form.prikazStatistike();
+        }
+
         internal void promijeniVidljivost(bool value)
         {
-            igrajLevele.Visible = vjezba.Visible = naslov.Visible = value;
+            vidiStatistiku.Visible = igrajLevele.Visible = vjezba.Visible = naslov.Visible = value;
         }
     }
 }

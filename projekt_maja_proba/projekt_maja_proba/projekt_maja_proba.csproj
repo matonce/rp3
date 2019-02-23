@@ -64,6 +64,7 @@
     <Compile Include="RadSBazom.cs" />
     <Compile Include="SpremljeneVjezbe.cs" />
     <Compile Include="Tipkanje.cs" />
+    <Compile Include="VidiStatistiku.cs" />
     <Compile Include="Vjezbe.cs" />
     <Compile Include="VjezbeSLevela.cs" />
     <EmbeddedResource Include="Form.resx">

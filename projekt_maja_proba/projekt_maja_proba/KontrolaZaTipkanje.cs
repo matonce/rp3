@@ -141,6 +141,8 @@ namespace projekt_maja_proba
 
                 bool uvjet = form.imaLiUvjeta();
 
+                form.radSBazom.dodajRezultat(brzina, preciznost);
+
                 if (uvjet == true && (preciznost < 80 || brzina < 3))
                 {
                     // srediti ovo
