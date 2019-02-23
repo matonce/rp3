@@ -70,7 +70,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
 
                 while (reader.Read())
                 {
-                    indeksiVjezbi.Add(new Tuple<int, string, string, int>((int)reader["ID"], reader["Naziv"].ToString(), reader["Stringovi"].ToString(), (int)reader["Otključana"]));
+                    indeksiVjezbi.Add(new Tuple<int, string, string, int>((int)reader["ID"], reader["Naziv"].ToString() + "\n(" + reader["Naj_brzina"].ToString() + " wpm, " + reader["Naj_preciznost"].ToString() + "%)", reader["Stringovi"].ToString(), (int)reader["Otključana"]));
                     //Console.WriteLine("iz baze se cita id " + indeksiVjezbi.Last());
                 }
             }
