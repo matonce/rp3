@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,16 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
         OleDbDataReader reader = null;
         int procitano;
 
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-            @"Data source= C:\Users\Ana\Desktop\rp3\projekt_maja_proba\baza.mdb";
-        //@"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
+        string connectionString;
 
         public RadSBazom()
         {
+            string executable = Environment.CurrentDirectory;
+            string path = Directory.GetParent(executable).Parent.Parent.FullName;
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
+            connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" + @"Data source=|DataDirectory|\baza.mdb";
+
             connection = new OleDbConnection(connectionString);
         }
 
