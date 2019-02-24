@@ -19,6 +19,8 @@ namespace projekt_maja_proba
         string trenutniString;
         Label trenutnaTipka = null;
         Label trenutnoSlovo = null;
+        String ime_vjezbe;
+
 
         string[] nizStringova;
         List<String> stringovi = new List<String>();
@@ -40,8 +42,9 @@ namespace projekt_maja_proba
             this.form = form;
         }
         
-        internal void pokreniOdbrojavanje(string[] nizStringova)
+        internal void pokreniOdbrojavanje(string[] nizStringova, string ime)
         {
+            ime_vjezbe = ime;
             this.nizStringova = nizStringova;
             trenutniString = nizStringova[0];
             trenutniIndeks = 0;
@@ -138,10 +141,11 @@ namespace projekt_maja_proba
                 double preciznost = Math.Round((double)tocno / (greska + tocno) * 100, 2);
                 double vrijeme = stopwatch.ElapsedMilliseconds / 1000; // u s
                 double brzina = Math.Round(((double)tocno / 5) / ((double)stopwatch.ElapsedMilliseconds / 60000), 2);
+                bool uvjet = false;
 
-                bool uvjet = form.imaLiUvjeta();
+                if (form.radSBazom.postojiLiIme(ime_vjezbe) == 1) uvjet = form.imaLiUvjeta();
 
-                form.radSBazom.dodajRezultat(brzina, preciznost);
+                form.radSBazom.dodajRezultat(ime_vjezbe, brzina, preciznost);
 
                 if (uvjet == true && (preciznost < 80 || brzina < 3))
                 {

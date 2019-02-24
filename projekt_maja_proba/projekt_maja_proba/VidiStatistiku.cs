@@ -16,7 +16,7 @@ namespace projekt_maja_proba
         {
             Location = new Point(143, 110),
             Name = "panel",
-            Size = new Size(393, 757),
+            Size = new Size(450, 757),
             Visible = false
         };
 
@@ -64,7 +64,7 @@ namespace projekt_maja_proba
         {
             if (value)
             {
-                List<Tuple<double, double>> rezultati = form.radSBazom.dohvatiZadnjeRezultate();
+                List<Tuple<string, double, double>> rezultati = form.radSBazom.dohvatiZadnjeRezultate();
                 int br = 0;
 
                 Label naslov1 = new Label()
@@ -85,11 +85,11 @@ namespace projekt_maja_proba
                         Font = new Font("Microsoft JhengHei", 12F),
                         ForeColor = Color.Black,
                         AutoSize = true,
-                        Text = br + ". brzina: " + rezultati.ElementAt(i).Item1 + " wpm, preciznost: " +
-                                rezultati.ElementAt(i).Item2 + "%"
+                        Text = br + ". " + rezultati.ElementAt(i).Item1 + " - brzina: " + rezultati.ElementAt(i).Item2 + " wpm, preciznost: " +
+                                rezultati.ElementAt(i).Item3 + "%"
                     };
                     panel.Controls.Add(label);
-                    if (br == 10) break;
+                    if (br == 15) break;
                 }
 
                 List<Tuple<String, double>> topSlova = form.radSBazom.dohvatiNajboljaSlova();

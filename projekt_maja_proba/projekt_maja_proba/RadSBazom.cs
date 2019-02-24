@@ -16,8 +16,8 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
         int procitano;
 
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;" +
-            // @"Data source= C:\Users\Ana\Desktop\Faks\rp3\projekt_maja_proba\baza.mdb";
-        @"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
+            @"Data source= C:\Users\Ana\Desktop\rp3\projekt_maja_proba\baza.mdb";
+        //@"Data source= C:\Users\Maja Tonček\source\repos\rp3\projekt_maja_proba\baza.mdb";
 
         public RadSBazom()
         {
@@ -382,7 +382,6 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             {
                 connection.Open();
                 OleDbCommand command = new OleDbCommand("select * from SpremljeneVjezbe", connection);
-                int i = (int)command.ExecuteScalar();
                 reader = command.ExecuteReader();
                 while (reader.Read()) nizStringova.Add(reader["Ime"].ToString());
             }
@@ -431,9 +430,9 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             return ret;
         }
 
-        internal List<Tuple<double, double>> dohvatiZadnjeRezultate()
+        internal List<Tuple<string, double, double>> dohvatiZadnjeRezultate()
         {
-            List<Tuple<double, double>> ret = new List<Tuple<double, double>>();
+            List<Tuple<string, double, double>> ret = new List<Tuple<string,double, double>>();
 
             try
             {
@@ -443,7 +442,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
                 reader = command.ExecuteReader();
 
                 while (reader.Read())
-                    ret.Add(new Tuple<double, double>((double)reader["Brzina"], (double)reader["Preciznost"]));
+                    ret.Add(new Tuple<string, double, double>((string)reader["ime"], (double)reader["Brzina"], (double)reader["Preciznost"]));
             }
             catch (Exception e)
             {
@@ -460,14 +459,15 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             return ret;
         }
 
-        internal void dodajRezultat(double brzina, double preciznost)
+        internal void dodajRezultat(String ime, double brzina, double preciznost)
         {
             try
             {
                 connection.Open();
 
-                OleDbCommand command = new OleDbCommand("insert into Statistika ([Brzina],[Preciznost]) " +
-                    "values (@brzina, @preciznost)", connection);
+                OleDbCommand command = new OleDbCommand("insert into Statistika ([Ime],[Brzina],[Preciznost]) " +
+                    "values (@ime, @brzina, @preciznost)", connection);
+                command.Parameters.AddWithValue("@ime", ime);
                 command.Parameters.AddWithValue("@brzina", brzina);
                 command.Parameters.AddWithValue("@preciznost", preciznost);
 
@@ -547,6 +547,33 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
                     connection.Close();
             }
             return topSlova;
+        }
+
+public int postojiLiIme(String ime)
+        {
+            int ret = -1;
+            try
+            {
+                connection.Open();
+                OleDbCommand command = new OleDbCommand("select count(*) from VjezbeSLevela where Naziv = @ime", connection);
+                command.Parameters.AddWithValue("@ime", ime);
+               
+                ret = (int)command.ExecuteScalar();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (connection != null)
+                    connection.Close();
+            }
+            if (ret == 0) return 0;
+            else return 1;
         }
     }
 }

@@ -59,21 +59,24 @@ namespace projekt_maja_proba
             {
                 vjezbe = form.radSBazom.dohvatiVjezbe();
 
-                for (int i = 0; i < vjezbe.Count; ++i)
+                if(vjezbe != null)
                 {
-                    Button button = new Button()
+                    for (int i = 0; i < vjezbe.Count; ++i)
                     {
-                        BackColor = Color.RosyBrown,
-                        Font = new Font("Microsoft JhengHei", 12F),
-                        ForeColor = Color.Snow,
-                        Name = vjezbe.ElementAt(i),
-                        Size = new Size(105, 105),
-                        Text = vjezbe.ElementAt(i),
-                        UseVisualStyleBackColor = false
-                    };
+                        Button button = new Button()
+                        {
+                            BackColor = Color.RosyBrown,
+                            Font = new Font("Microsoft JhengHei", 12F),
+                            ForeColor = Color.Snow,
+                            Name = vjezbe.ElementAt(i),
+                            Size = new Size(105, 105),
+                            Text = vjezbe.ElementAt(i),
+                            UseVisualStyleBackColor = false
+                        };
 
-                    flowLayoutPanel.Controls.Add(button);
-                    button.Click += new EventHandler(button_click);
+                        flowLayoutPanel.Controls.Add(button);
+                        button.Click += new EventHandler(button_click);
+                    }
                 }
             }
             else
@@ -101,7 +104,7 @@ namespace projekt_maja_proba
             }
 
             stringovi = form.vjezbe.generirajVjezbu(vjezba[0].Item1, vjezba[0].Item2, sl);
-            form.prikazTipkanjaZaVjezbe(stringovi); 
+            form.prikazTipkanjaZaVjezbe(stringovi, ime); 
         }
     }
 

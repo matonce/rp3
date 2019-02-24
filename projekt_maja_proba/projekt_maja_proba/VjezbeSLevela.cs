@@ -63,7 +63,7 @@ namespace projekt_maja_proba
 
                 for (int i = 0; i < indeksiVjezbi.Count; ++i)
                 {
-                    ProsireniButton prošireniButton = new ProsireniButton();
+                    /*ProsireniButton prošireniButton = new ProsireniButton();
                     prošireniButton.Size = new Size(105, 105);
 
                     prošireniButton.button1.Name = indeksiVjezbi.ElementAt(i).Item3;
@@ -73,7 +73,7 @@ namespace projekt_maja_proba
 
                     prošireniButton.label1.Text = indeksiVjezbi.ElementAt(i).Item5;
 
-                    /*
+                    */
                     Button button = new Button()
                     {
                         BackColor = Color.RosyBrown,
@@ -84,16 +84,16 @@ namespace projekt_maja_proba
                         TabIndex = indeksiVjezbi.ElementAt(i).Item1, // prije je bilo >i<
                         Text = indeksiVjezbi.ElementAt(i).Item2,
                         UseVisualStyleBackColor = false
-                    };*/
+                    };
 
                     if (indeksiVjezbi.ElementAt(i).Item4 == 0)
-                        //button.Enabled = false;
-                        prošireniButton.Enabled = false;
+                        button.Enabled = false;
+                        //prošireniButton.Enabled = false;
 
-                    //flowLayoutPanel2.Controls.Add(button);
-                    flowLayoutPanel2.Controls.Add(prošireniButton);
-                    //button.Click += new EventHandler(button_click);
-                    prošireniButton.button1.Click += new EventHandler(button_click);
+                    flowLayoutPanel2.Controls.Add(button);
+                    //flowLayoutPanel2.Controls.Add(prošireniButton);
+                    button.Click += new EventHandler(button_click);
+                    //prošireniButton.button1.Click += new EventHandler(button_click);
                 }
             }
             else
@@ -115,7 +115,7 @@ namespace projekt_maja_proba
         private void button_click(object sender, EventArgs e)
         {
             promijeniVidljivost(false, -1);
-            form.prikazTipkanja(((Button)sender).Name, ((Button)sender).TabIndex); // u Nameu skrivam niz stringova
+            form.prikazTipkanja(((Button)sender).Name, ((Button)sender).TabIndex, ((Button)sender).Text); // u Nameu skrivam niz stringova
         }
     }
 }

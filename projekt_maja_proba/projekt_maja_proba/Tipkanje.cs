@@ -56,19 +56,19 @@ namespace projekt_maja_proba
             DialogResult dialogResult = MessageBox.Show("Zelis li prekinuti vjezbu?", "Poruka", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                promijeniVidljivost(false, "");
-                form.prikazVjezbiSLevela(-1);
+                promijeniVidljivost(false, "", "");
+                form.prikazNaslovne();
 
                 form.onemoguciReagiranjeNaTipke();
             }
         }
 
-        internal void promijeniVidljivost(bool value, string stringovi)
+        internal void promijeniVidljivost(bool value, string stringovi, string ime)
         {
             kontrolaZaTipkanje.Visible = buttonNatrag.Visible = value;
             if (value)
             {
-                kontrolaZaTipkanje.pokreniOdbrojavanje(stringovi.Split('|'));
+                kontrolaZaTipkanje.pokreniOdbrojavanje(stringovi.Split('|'), ime);
             }
             else
             {
@@ -78,13 +78,13 @@ namespace projekt_maja_proba
             //Console.WriteLine("promijenjena vidljivost od vjezbi na " + value);
         }
 
-        internal void promijeniVidljivostZaVjezbe(bool value, List<String> stringovi)
+        internal void promijeniVidljivostZaVjezbe(bool value, List<String> stringovi, String ime)
         {
             Console.WriteLine("promijeni vidljivost za vjezbe");
             kontrolaZaTipkanje.Visible = buttonNatrag.Visible = value;
             if (value)
             {
-                kontrolaZaTipkanje.pokreniOdbrojavanje(stringovi.ToArray());
+                kontrolaZaTipkanje.pokreniOdbrojavanje(stringovi.ToArray(), ime);
             }
             else
             {
