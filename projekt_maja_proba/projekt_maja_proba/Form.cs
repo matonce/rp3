@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -48,8 +50,6 @@ namespace projekt_maja_proba
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
-
-            BackgroundImage = null;
         }
         
         private void PritisnutaTipka(object sender, KeyPressEventArgs e)
@@ -63,11 +63,15 @@ namespace projekt_maja_proba
         }
 
         internal void prikazNaslovne()
-        {
-            //BackgroundImage = ((Image)(Properties.Resources.ResourceManager.GetObject("$this.BackgroundImage")));
-            //BackgroundImageLayout = ImageLayout.Stretch;
+        {/*
+            Assembly myAssembly = Assembly.GetExecutingAssembly();
+            Stream myStream = myAssembly.GetManifestResourceStream("projekt_maja_proba.projekt_maja_proba.Slika.jpg");
+
+            BackgroundImage = Image.FromStream(myStream); 
+            BackgroundImageLayout = ImageLayout.Stretch;*/
+
             BackgroundImage = null;
-            BackColor = Color.White;
+            BackColor = Color.BlanchedAlmond;
 
             naslovna.promijeniVidljivost(true);
         }
