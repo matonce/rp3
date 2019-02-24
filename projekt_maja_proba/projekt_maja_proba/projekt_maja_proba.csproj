@@ -61,6 +61,12 @@
     <Compile Include="KontrolaZaTipkanje.Designer.cs">
       <DependentUpon>KontrolaZaTipkanje.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProsireniButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProsireniButton.Designer.cs">
+      <DependentUpon>ProsireniButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="RadSBazom.cs" />
     <Compile Include="SpremljeneVjezbe.cs" />
     <Compile Include="Tipkanje.cs" />
@@ -82,6 +88,9 @@
     <EmbeddedResource Include="KontrolaZaTipkanje.resx">
       <DependentUpon>KontrolaZaTipkanje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProsireniButton.resx">
+      <DependentUpon>ProsireniButton.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="slikica.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
