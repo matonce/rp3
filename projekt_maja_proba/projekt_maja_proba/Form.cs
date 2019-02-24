@@ -113,24 +113,24 @@ namespace projekt_maja_proba
             vjezbeSLevela.promijeniVidljivost(true, this.indeksLevela);
         }
 
-        internal void prikazTipkanja(string stringovi, int indeksVjezbe) // pripremljene vjezbe
+        internal void prikazTipkanja(string stringovi, int indeksVjezbe, String ime) // pripremljene vjezbe
         {
             this.indeksVjezbe = indeksVjezbe;
 
             BackColor = Color.White;
 
             vjezbeSLevela.promijeniVidljivost(false, -1);
-            tipkanje.promijeniVidljivost(true, stringovi);
+            tipkanje.promijeniVidljivost(true, stringovi, ime);
 
             KeyPress += PritisnutaTipka;
         }
 
-        internal void prikazTipkanjaZaVjezbe(List<String> stringovi) // custom vjezbe
+        internal void prikazTipkanjaZaVjezbe(List<String> stringovi, string ime) // custom vjezbe
         {
             BackColor = Color.White;
 
             vjezbe.promijeniVidljivost(false);
-            tipkanje.promijeniVidljivostZaVjezbe(true, stringovi);
+            tipkanje.promijeniVidljivostZaVjezbe(true, stringovi, ime);
 
             KeyPress += PritisnutaTipka;
         }
@@ -167,12 +167,12 @@ namespace projekt_maja_proba
 
             if (trenutno == 1)
             {
-                tipkanje.promijeniVidljivostZaVjezbe(false, null);
+                tipkanje.promijeniVidljivostZaVjezbe(false, null, "");
                 prikazZaVjezbe();
             }
             else if (trenutno == 2)
             {
-                tipkanje.promijeniVidljivostZaVjezbe(false, null);
+                tipkanje.promijeniVidljivostZaVjezbe(false, null, "");
                 prikazSpremljenihVjezbi();
             }
             else
@@ -186,14 +186,14 @@ namespace projekt_maja_proba
                         MessageBox.Show("Otključan je novi level!");
                     else
                         MessageBox.Show("Svi leveli su prijeđeni!");
-                    tipkanje.promijeniVidljivostZaVjezbe(false, null);
+                    tipkanje.promijeniVidljivostZaVjezbe(false, null, "");
                     prikazLevela();
                 }
                 else // prikaz vjezbe nakon ove; njen task je u 's'
                 {
                     Console.WriteLine("stringic je " + rez.Item2);
                     MessageBox.Show("Slijedi vježba \"" + rez.Item1 + "\".");
-                    prikazTipkanja(rez.Item2, indeksVjezbe + 1);
+                    prikazTipkanja(rez.Item2, indeksVjezbe + 1, "");
                 }
             }
         }

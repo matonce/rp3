@@ -222,7 +222,7 @@ namespace projekt_maja_proba
 
             stringovi = form.radSBazom.odaberiRijeci(br_rijeci);
             for(int i = 0; i < stringovi.Count; i++) Console.WriteLine(stringovi[i]);
-            form.prikazTipkanjaZaVjezbe(stringovi);      
+            form.prikazTipkanjaZaVjezbe(stringovi, "stvarne riječi");      
         }
 
         private void buttonNatragNaNaslovnu_Click(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace projekt_maja_proba
                 stringovi = generirajVjezbu(br_rijeci_gen, br_slova, slova);
 
                 for (int i = 0; i < stringovi.Count; i++) Console.WriteLine(stringovi[i]);
-                form.prikazTipkanjaZaVjezbe(stringovi);
+                form.prikazTipkanjaZaVjezbe(stringovi, "custom");
             }
             else
                 MessageBox.Show("Označi barem jedno slovo!", "Upozorenje");
