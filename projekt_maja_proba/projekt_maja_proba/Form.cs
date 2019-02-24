@@ -26,6 +26,8 @@ namespace projekt_maja_proba
 
         int trenutno = 0;
 
+        internal bool handled;
+
         public Form()
         {
             InitializeComponent();
@@ -52,6 +54,11 @@ namespace projekt_maja_proba
         
         private void PritisnutaTipka(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Space)
+                handled = true;
+            else
+                handled = false;
+
             tipkanje.kontrolaZaTipkanje.KeyDownHandler(sender, e);
         }
 

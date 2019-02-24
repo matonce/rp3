@@ -51,8 +51,11 @@ namespace projekt_maja_proba
 
         private void buttonNatrag_Click(object sender, EventArgs e)
         {
-            promijeniVidljivost(false, -1);
-            form.prikazLevela();
+            if (form.handled == false)
+            {
+                promijeniVidljivost(false, -1);
+                form.prikazLevela();
+            }
         }
 
         public void promijeniVidljivost(bool value, int indeksLevela)
