@@ -7,21 +7,26 @@ Daktilograf - napravite program koji korisniku omogućuje vježbanje brzog tipka
 ## Naslovna stranica:
 Na naslovnoj stranici imamo 3 gumba. „Igraj levele“ vodi na unaprijed priremljene levele raznih težina, „Vježba“ vodi na vježbe koje možemo sami generirati i spremiti ili vježbati na pravim riječima te učitati već spremljene vježbe i klikom na „Statistika“ ispisuju nam se neki podaci o igranju do sada.
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/1.png)
 
 ## Leveli:
 Prvo odabiremo grupu levela s određene težine. Nije moguće preskakati levele, npr. potrebno je prijeći sve Vježbe s Levela1: Home row da bismo mogli otvoriti Level2: Top row. 
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/2.png)
  
 Kada odaberemo grupu levela, prikažu nam se dostupne vježbe s te težine. Ispod gumba za pokretanje svakog levela nalazi se trenutni rekord. Po završetku levela, automatski se pokreće sljedeći, a potrebno je ostvariti uvjete od barem 80% preciznosti i brzine od barem 3 riječi po minuti kako bi se otključao sljedeći. 
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/3.png)
  
 
 ## Kontrola za tipkanje: 
 Nakon pokretanja odabrane vježbe, riječi se čitaju iz baze i ispisuju na ekranu. Ispod riječi se nalazi tipkovnica na kojoj je moguće dodati opciju da se pokaže trenutno slovo. Isto tako je moguće dodati opciju preskakanja krivo napisanog slova, dok po defaultu program čeka dok se ne upiše točno slovo. 
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/4.png)
  
 Nakon završene vježbe, dobijemo podatke o preciznosti, vremenu i brzini za upravo odigranu vježbu. Ti podaci se automatski zapisuju i u statistiku. Ako smo upravo ostvarili rekord za taj level, dobit ćemo poruku i o tome, ili ako nismo ostvarili uvjet za sljedeći level.  U svakom trenutku je moguće prekinuti level i vratiti se natrag.
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/5.png)
  
 
 ## Vježbe:
@@ -29,10 +34,15 @@ Klikom na vježbe dobijemo razne opcije vezane za vježbe. Moguće je „checkir
 Ako želimo spremiti vježbu s zadanim postavkama, moramo još unijeti i proizvoljno ime te vježbe i kliknuti na gumb „Spremi generiranu vježbu“.
 Ako kliknemo na gumb „Započni vježbu sa stvarnim slovima“ pokreće se vježba koja se sastoj od odabranog broja riječi. Riječi u ovom tipu vježbe se nasumično biraju iz unaprijed pripremljene baze. 
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/6.png)
+
  
 Klikom na „Pregled spremljenih vježbi“ dobijemo popis prethodno spremljenih vježbi koje je moguće pokrenuti klikom na odgovarajući gumb.
 
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/7.png)
  
 ## Statistika:
 Ako na naslovnoj stranici kliknemo na „Statistika“ prikažu nam se podaci o zadnjih 15 vježbi (ako još nismo odigrali 15, prikažu se sve dosada) te što smo vježbali, brzina i preciznost te vježbe. Također prikazana je lista 5 slova koja nam najbolje idu i 5 slova koja nam najgore idu zajedno sa svojim postotkom točnosti. 
+
+![alt text](https://github.com/matonce/rp3/blob/master/projekt_maja_proba/slike%20aplikacije/8.png)
 
