@@ -32,8 +32,8 @@ namespace projekt_maja_proba
         Label brojRijeci = new Label()
         {
             AutoSize = true,
-            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
-            Location = new Point(600, 150),
+            Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Location = new Point(510, 150),
             Name = "broj_riječi",
             Size = new Size(128, 20),
             TabIndex = 1,
@@ -44,7 +44,7 @@ namespace projekt_maja_proba
         Label imeVjezbe = new Label()
         {
             AutoSize = true,
-            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 440),
             Name = "broj_riječi",
             Size = new Size(128, 20),
@@ -78,7 +78,7 @@ namespace projekt_maja_proba
         Label brojRijeci_gen = new Label()
         {
             AutoSize = true,
-            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 380),
             Name = "broj_riječi",
             Size = new Size(128, 20),
@@ -102,7 +102,7 @@ namespace projekt_maja_proba
         Label brojSlova_gen = new Label()
         {
             AutoSize = true,
-            Font = new Font("Courier New", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
+            Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 410),
             Name = "broj_riječi",
             Size = new Size(128, 20),
@@ -128,7 +128,7 @@ namespace projekt_maja_proba
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
-            Location = new Point(600, 81),
+            Location = new Point(510, 81),
             Name = "nova_igra",
             Size = new Size(186, 24),
             TabIndex = 2,
@@ -141,7 +141,7 @@ namespace projekt_maja_proba
             AutoSize = true,
             BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
-            Location = new Point(600, 300),
+            Location = new Point(510, 260),
             Name = "pregled",
             Size = new Size(186, 24),
             TabIndex = 2,

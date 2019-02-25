@@ -75,7 +75,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
 
                 while (reader.Read())
                 {
-                    indeksiVjezbi.Add(new Tuple<int, string, string, int, string>((int)reader["ID"], reader["Naziv"].ToString(), reader["Stringovi"].ToString(), (int)reader["Otključana"], "(" + reader["Naj_brzina"].ToString() + " wpm, " + reader["Naj_preciznost"].ToString() + "%)"));
+                    indeksiVjezbi.Add(new Tuple<int, string, string, int, string>((int)reader["ID"], reader["Naziv"].ToString(), reader["Stringovi"].ToString(), (int)reader["Otključana"], reader["Naj_brzina"].ToString() + " wpm, " + reader["Naj_preciznost"].ToString() + "%"));
                     //Console.WriteLine("iz baze se cita id " + indeksiVjezbi.Last());
                 }
             }
@@ -101,11 +101,6 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             try
             {
                 connection.Open();
-
-                // ucini upravo prijedenu vjezbu dostupnom
-                /*OleDbCommand command = new OleDbCommand("update VjezbeSLevela set Otključana = 1 where ID = @indeksVjezbe", connection);
-                command.Parameters.AddWithValue("@indeksVjezbe", indeksVjezbe);
-                command.ExecuteNonQuery();*/
 
                 // ucini sljedecu vjezbu dostupnom, ak je ima
                 OleDbCommand command = new OleDbCommand("update VjezbeSLevela set Otključana = 1 where ID = @indeksVjezbe and ID_levela=@indeksLevela", connection);

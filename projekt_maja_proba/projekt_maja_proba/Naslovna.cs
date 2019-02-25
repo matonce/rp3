@@ -24,7 +24,7 @@ namespace projekt_maja_proba
             Name = "igrajLevele",
             Size = new Size(116, 26),
             TabIndex = 0,
-            Text = "Igraj levele",
+            Text = "Leveli",
             UseVisualStyleBackColor = false
         };
 
@@ -50,11 +50,11 @@ namespace projekt_maja_proba
             FlatStyle = FlatStyle.Popup,
             Font = new Font("Courier New", 10F, FontStyle.Bold),
             ForeColor = Color.WhiteSmoke,
-            Location = new Point(543, 358),
+            Location = new Point(501, 358),
             Name = "vjezba",
-            Size = new Size(92, 26),
+            Size = new Size(134, 26),
             TabIndex = 1,
-            Text = "Vježba",
+            Text = "Tvoje vježbe",
             UseVisualStyleBackColor = true
         };
 

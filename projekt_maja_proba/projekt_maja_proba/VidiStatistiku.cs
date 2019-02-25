@@ -22,7 +22,7 @@ namespace projekt_maja_proba
 
         TableLayoutPanel panel2 = new TableLayoutPanel()
         {
-            Location = new Point(643, 110),
+            Location = new Point(623, 110),
             Name = "panel",
             Size = new Size(393, 150),
             Visible = false
@@ -30,7 +30,7 @@ namespace projekt_maja_proba
 
         TableLayoutPanel panel3 = new TableLayoutPanel()
         {
-            Location = new Point(643, 300),
+            Location = new Point(623, 300),
             Name = "panel",
             Size = new Size(393, 150),
             Visible = false
@@ -50,12 +50,12 @@ namespace projekt_maja_proba
         Button buttonNatrag = new Button()
         {
             BackColor = Color.SeaShell,
-            Font = new Font("Microsoft JhengHei", 7F),
-            Location = new Point(143, 12),
+            Font = new Font("Courier New", 7F),
+            Location = new Point(50, 12),
             Name = "buttonNatrag",
             Size = new Size(100, 40),
             TabIndex = 10,
-            Text = "natrag",
+            Text = "naslovna",
             UseVisualStyleBackColor = false,
             Visible = false
         };
@@ -69,12 +69,13 @@ namespace projekt_maja_proba
 
                 Label naslov1 = new Label()
                 {
-                    Font = new Font("Microsoft JhengHei", 20F),
+                    Font = new Font("Courier New", 20F),
                     ForeColor = Color.Black,
                     AutoSize = true,
                     Text = "Zadnji rezultati",
-                    BorderStyle = BorderStyle.FixedSingle
-                };
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(3, 0, 3, 10)
+            };
                 panel.Controls.Add(naslov1);
 
                 for (int i = rezultati.Count - 1; i >= 0; --i)
@@ -82,10 +83,10 @@ namespace projekt_maja_proba
                     br++;
                     Label label = new Label()
                     {
-                        Font = new Font("Microsoft JhengHei", 12F),
+                        Font = new Font("Courier New", 12F),
                         ForeColor = Color.Black,
                         AutoSize = true,
-                        Text = br + ". " + rezultati.ElementAt(i).Item1 + " - brzina: " + rezultati.ElementAt(i).Item2 + " wpm, preciznost: " +
+                        Text = br + ". " + rezultati.ElementAt(i).Item1 + ": " + rezultati.ElementAt(i).Item2 + " wpm, " +
                                 rezultati.ElementAt(i).Item3 + "%"
                     };
                     panel.Controls.Add(label);
@@ -96,11 +97,12 @@ namespace projekt_maja_proba
 
                 Label naslov2 = new Label()
                 {
-                    Font = new Font("Microsoft JhengHei", 20F),
+                    Font = new Font("Courier New", 20F),
                     ForeColor = Color.Black,
                     AutoSize = true,
                     Text = "Top 5 slova",
-                    BorderStyle = BorderStyle.FixedSingle
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(3, 0, 3, 10)
                 };
                 panel2.Controls.Add(naslov2);
 
@@ -108,11 +110,11 @@ namespace projekt_maja_proba
                 {
                     Label label = new Label()
                     {
-                        Font = new Font("Microsoft JhengHei", 12F),
+                        Font = new Font("Courier New", 12F),
                         ForeColor = Color.Black,
                         AutoSize = true,
-                        Text = (i + 1) + ". " + topSlova.ElementAt(i).Item1 + " - točnost: " +
-                                topSlova.ElementAt(i).Item2 + "%"
+                        Text = (i + 1) + ". " + topSlova.ElementAt(i).Item1 + " (" +
+                                topSlova.ElementAt(i).Item2 + "%)"
                     };
                     panel2.Controls.Add(label);
                 }
@@ -121,11 +123,12 @@ namespace projekt_maja_proba
 
                 Label naslov3 = new Label()
                 {
-                    Font = new Font("Microsoft JhengHei", 20F),
+                    Font = new Font("Courier New", 20F),
                     ForeColor = Color.Black,
                     AutoSize = true,
                     Text = "Flop 5 slova",
-                    BorderStyle = BorderStyle.FixedSingle
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Margin = new Padding(3, 0, 3, 10)
                 };
                 panel3.Controls.Add(naslov3);
 
@@ -133,11 +136,11 @@ namespace projekt_maja_proba
                 {
                     Label label = new Label()
                     {
-                        Font = new Font("Microsoft JhengHei", 12F),
+                        Font = new Font("Courier New", 12F),
                         ForeColor = Color.Black,
                         AutoSize = true,
-                        Text = (i + 1) + ". " + flopSlova.ElementAt(i).Item1.ToString() + " - točnost: " +
-                                flopSlova.ElementAt(i).Item2.ToString() + "%"
+                        Text = (i + 1) + ". " + flopSlova.ElementAt(i).Item1.ToString() + " (" +
+                                flopSlova.ElementAt(i).Item2.ToString() + "%)"
                     };
                     panel3.Controls.Add(label);
                 }

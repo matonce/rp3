@@ -22,7 +22,7 @@ namespace projekt_maja_proba
             | AnchorStyles.Right),
             Location = new Point(143, 110),
             Name = "flowLayoutPanel1",
-            Size = new Size(793, 357),
+            Size = new Size(670, 357),
             TabIndex = 11,
             Visible = false
         };
@@ -31,7 +31,7 @@ namespace projekt_maja_proba
         {
             BackColor = Color.SeaShell,
             Font = new Font("Microsoft JhengHei", 7F),
-            Location = new Point(143, 12),
+            Location = new Point(50, 12),
             Name = "buttonNatrag",
             Size = new Size(100, 40),
             TabIndex = 10,

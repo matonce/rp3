@@ -63,15 +63,8 @@ namespace projekt_maja_proba
         }
 
         internal void prikazNaslovne()
-        {/*
-            Assembly myAssembly = Assembly.GetExecutingAssembly();
-            Stream myStream = myAssembly.GetManifestResourceStream("projekt_maja_proba.projekt_maja_proba.Slika.jpg");
-
-            BackgroundImage = Image.FromStream(myStream); 
-            BackgroundImageLayout = ImageLayout.Stretch;*/
-
-            BackgroundImage = null;
-            BackColor = Color.BlanchedAlmond;
+        {
+            BackgroundImage = Properties.Resources.Slika;
 
             naslovna.promijeniVidljivost(true);
         }

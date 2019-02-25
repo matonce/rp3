@@ -1286,9 +1286,9 @@
             this.panel1.BackColor = System.Drawing.Color.SeaShell;
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Location = new System.Drawing.Point(510, 3);
+            this.panel1.Location = new System.Drawing.Point(554, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 27);
+            this.panel1.Size = new System.Drawing.Size(234, 27);
             this.panel1.TabIndex = 10;
             // 
             // checkBox1
@@ -1300,11 +1300,11 @@
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft JhengHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox1.Location = new System.Drawing.Point(7, 3);
+            this.checkBox1.Location = new System.Drawing.Point(10, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(142, 19);
+            this.checkBox1.Size = new System.Drawing.Size(93, 19);
             this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "show letter on keyboard";
+            this.checkBox1.Text = "osjenčaj slovo";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -1315,11 +1315,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft JhengHei", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkBox2.Location = new System.Drawing.Point(170, 3);
+            this.checkBox2.Location = new System.Drawing.Point(109, 3);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(108, 19);
+            this.checkBox2.Size = new System.Drawing.Size(119, 19);
             this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "skip wrong letter";
+            this.checkBox2.Text = "preskoči krivu tipku";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label1

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.igraj_levele = new System.Windows.Forms.Button();
             this.vjezba = new System.Windows.Forms.Button();
             this.naslov = new System.Windows.Forms.Label();
@@ -62,9 +61,9 @@
             this.vjezba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.vjezba.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
             this.vjezba.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.vjezba.Location = new System.Drawing.Point(543, 358);
+            this.vjezba.Location = new System.Drawing.Point(501, 358);
             this.vjezba.Name = "vjezba";
-            this.vjezba.Size = new System.Drawing.Size(92, 26);
+            this.vjezba.Size = new System.Drawing.Size(134, 26);
             this.vjezba.TabIndex = 1;
             this.vjezba.Text = "Vježba";
             this.vjezba.UseVisualStyleBackColor = false;
@@ -85,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::projekt_maja_proba.Properties.Resources.Slika;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(947, 531);
             this.Controls.Add(this.naslov);
