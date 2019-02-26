@@ -148,7 +148,7 @@ namespace projekt_maja_proba // možemo postaviti da su prve vježbe u svim leve
             try
             {
                 connection.Open();
-                OleDbCommand command = new OleDbCommand("select Ima_uvjete from VjezbeSLevela where ID_levela = @indeksVjezbe order by ID", connection);
+                OleDbCommand command = new OleDbCommand("select Ima_uvjete from VjezbeSLevela where ID = @indeksVjezbe", connection);
                 command.Parameters.AddWithValue("@indeksVjezbe", indeksVjezbe);
                 reader = command.ExecuteReader();
 
