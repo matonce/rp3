@@ -40,6 +40,17 @@ namespace projekt_maja_proba
             Visible = false
         };
 
+        Label vjezbe = new Label()
+        {
+            Font = new Font("Courier New", 35F),
+            ForeColor = Color.RosyBrown,
+            // Location = new Point(473, 12),
+            Name = "vjezbe",
+            Text = "Vježbe",
+            Size = new Size(200, 60),
+            Visible = false
+        };
+
         public VjezbeSLevela(Form form)
         {
             this.form = form;
@@ -47,6 +58,9 @@ namespace projekt_maja_proba
             flowLayoutPanel2.Parent = form;
             buttonNatrag.Parent = form;
             buttonNatrag.Click += new EventHandler(buttonNatrag_Click);
+            
+            vjezbe.Parent = form;
+            vjezbe.Location = new Point(form.ClientSize.Width / 2 - 100, 12);
         }
 
         private void buttonNatrag_Click(object sender, EventArgs e)
@@ -89,7 +103,7 @@ namespace projekt_maja_proba
                 indeksiVjezbi.Clear();
             }
 
-            flowLayoutPanel2.Visible = buttonNatrag.Visible = value;
+            vjezbe.Visible = flowLayoutPanel2.Visible = buttonNatrag.Visible = value;
         }
 
         /*

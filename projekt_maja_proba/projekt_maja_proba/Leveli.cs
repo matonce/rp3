@@ -18,13 +18,13 @@ namespace projekt_maja_proba
             Anchor = (((AnchorStyles.Top | AnchorStyles.Bottom)
             | AnchorStyles.Left)
             | AnchorStyles.Right),
-            Location = new Point(143, 110),
+            Location = new Point(150, 160),
             Name = "flowLayoutPanel1",
             Size = new Size(670, 357),
             TabIndex = 11,
             Visible = false
         };
-
+        
         Button buttonNatragNaNaslovnu = new Button()
         {
             BackColor = Color.SeaShell,
@@ -57,11 +57,10 @@ namespace projekt_maja_proba
             buttonNatragNaNaslovnu.Parent = form;
             level.Parent = form;
 
-            level.Location = new Point(form.ClientSize.Width / 2 - 50, 12);
+            level.Location = new Point(form.ClientSize.Width / 2 - 100, 12);
 
             buttonNatragNaNaslovnu.BringToFront();
             buttonNatragNaNaslovnu.Click += new EventHandler(buttonNatragNaNaslovnu_Click);
-
         }
 
         private void buttonNatragNaNaslovnu_Click(object sender, EventArgs e)
@@ -84,7 +83,7 @@ namespace projekt_maja_proba
                         Font = new Font("Courier New", 12F),
                         ForeColor = Color.Snow,
                         Name = "buttonLevel" + (i + 1).ToString(),
-                        Size = new Size(105, 105),
+                        Size = new Size(205, 205),
                         TabIndex = i,
                         Text = naziviLevela.ElementAt(i).Item1,
                         UseVisualStyleBackColor = false
