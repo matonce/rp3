@@ -22,7 +22,7 @@ namespace projekt_maja_proba
         {
             BackColor = Color.SeaShell,
             Font = new Font("Microsoft JhengHei", 7F),
-            Location = new Point(143, 12),
+            Location = new Point(50, 12),
             Name = "buttonNatrag",
             Size = new Size(100, 40),
             TabIndex = 10,

@@ -74,7 +74,7 @@ namespace projekt_maja_proba
             trenutno = 1;
 
             BackgroundImage = null;
-            BackColor = Color.BlanchedAlmond;
+            BackColor = Color.AntiqueWhite;
 
             vjezbe.promijeniVidljivost(true);
         }
@@ -82,7 +82,7 @@ namespace projekt_maja_proba
         internal void prikazStatistike()
         {
             BackgroundImage = null;
-            BackColor = Color.BlanchedAlmond;
+            BackColor = Color.AntiqueWhite;
 
             vidiStatistiku.promijeniVidljivost(true);
         }
@@ -90,7 +90,7 @@ namespace projekt_maja_proba
         internal void prikazLevela()
         {
             BackgroundImage = null;
-            BackColor = Color.White;
+            BackColor = Color.Snow;
 
             leveli.promijeniVidljivost(true);
         }
@@ -100,7 +100,7 @@ namespace projekt_maja_proba
             trenutno = 2;
 
             BackgroundImage = null;
-            BackColor = Color.White;
+            BackColor = Color.Snow;
             
             spremljeneVjezbe.promijeniVidljivost(true);
         }

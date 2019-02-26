@@ -19,7 +19,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojRijeci = new NumericUpDown()
         {
-            Location = new Point(730, 150),
+            Location = new Point(705, 130),
             Maximum = new decimal(new int[] {50,0,0,0}),
             Minimum = new decimal(new int[] {1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -33,7 +33,7 @@ namespace projekt_maja_proba
         {
             AutoSize = true,
             Font = new Font("Courier New", 10F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0))),
-            Location = new Point(510, 150),
+            Location = new Point(510, 130),
             Name = "broj_riječi",
             Size = new Size(128, 20),
             TabIndex = 1,
@@ -65,7 +65,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojRijeci_gen = new NumericUpDown()
         {
-            Location = new Point(275, 380),
+            Location = new Point(255, 380),
             Maximum = new decimal(new int[] { 50, 0, 0, 0 }),
             Minimum = new decimal(new int[] { 1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -89,7 +89,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojSlova_gen = new NumericUpDown()
         {
-            Location = new Point(285, 410),
+            Location = new Point(255, 410),
             Maximum = new decimal(new int[] { 15, 0, 0, 0 }),
             Minimum = new decimal(new int[] { 1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -126,7 +126,6 @@ namespace projekt_maja_proba
         Button novaIgraButton = new Button()
         {
             AutoSize = true,
-            BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(510, 81),
             Name = "nova_igra",
@@ -139,7 +138,6 @@ namespace projekt_maja_proba
         Button pregledSpremljenih = new Button()
         {
             AutoSize = true,
-            BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(510, 260),
             Name = "pregled",
@@ -152,7 +150,6 @@ namespace projekt_maja_proba
         Button spremiVjezbu = new Button()
         {
             AutoSize = true,
-            BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 480),
             Name = "nova_igra",
@@ -165,7 +162,6 @@ namespace projekt_maja_proba
         Button generirajButton = new Button()
         {
             AutoSize = true,
-            BackColor = Color.BlanchedAlmond,
             Font = new Font("Courier New", 14.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0))),
             Location = new Point(50, 81),
             Name = "generiraj_vjezbu",
@@ -177,7 +173,7 @@ namespace projekt_maja_proba
 
         Button buttonNatragNaNaslovnu = new Button()
         {
-            BackColor = Color.SeaShell,
+            BackColor = Color.Linen,
             Font = new Font("Courier New", 7F),
             Location = new Point(50, 12),
             Name = "buttonNatragNaNaslovnu",

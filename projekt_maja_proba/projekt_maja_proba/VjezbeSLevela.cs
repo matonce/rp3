@@ -29,7 +29,7 @@ namespace projekt_maja_proba
 
         Button buttonNatrag = new Button()
         {
-            BackColor = Color.SeaShell,
+            BackColor = Color.MistyRose,
             Font = new Font("Microsoft JhengHei", 7F),
             Location = new Point(50, 12),
             Name = "buttonNatrag",

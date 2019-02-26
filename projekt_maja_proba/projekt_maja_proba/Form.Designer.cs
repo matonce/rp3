@@ -39,7 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.igraj_levele.AutoEllipsis = true;
-            this.igraj_levele.BackColor = System.Drawing.Color.Transparent;
+            this.igraj_levele.BackColor = System.Drawing.Color.DimGray;
             this.igraj_levele.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.igraj_levele.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.igraj_levele.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
@@ -57,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.vjezba.AutoSize = true;
-            this.vjezba.BackColor = System.Drawing.Color.Transparent;
+            this.vjezba.BackColor = System.Drawing.Color.DimGray;
             this.vjezba.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.vjezba.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
             this.vjezba.ForeColor = System.Drawing.Color.WhiteSmoke;

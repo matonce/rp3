@@ -15,7 +15,7 @@ namespace projekt_maja_proba
         Button igrajLevele = new Button()
         {
             AutoEllipsis = true,
-            BackColor = Color.Transparent,
+            BackColor = Color.DimGray,
             BackgroundImageLayout = ImageLayout.None,
             FlatStyle = FlatStyle.Popup,
             Font = new Font("Courier New", 10F, FontStyle.Bold),
@@ -31,7 +31,7 @@ namespace projekt_maja_proba
         Button vidiStatistiku = new Button()
         {
             AutoEllipsis = true,
-            BackColor = Color.Transparent,
+            BackColor = Color.DimGray,
             BackgroundImageLayout = ImageLayout.None,
             FlatStyle = FlatStyle.Popup,
             Font = new Font("Courier New", 10F, FontStyle.Bold),
@@ -46,7 +46,7 @@ namespace projekt_maja_proba
         Button vjezba = new Button()
         {
             AutoEllipsis = true,
-            BackColor = Color.Transparent,
+            BackColor = Color.DimGray,
             FlatStyle = FlatStyle.Popup,
             Font = new Font("Courier New", 10F, FontStyle.Bold),
             ForeColor = Color.WhiteSmoke,
