@@ -197,7 +197,7 @@ namespace projekt_maja_proba
                 {
                     Console.WriteLine("stringic je " + rez.Item2);
                     MessageBox.Show("Slijedi vježba \"" + rez.Item1 + "\".");
-                    prikazTipkanja(rez.Item2, indeksVjezbe + 1, "");
+                    prikazTipkanja(rez.Item2, indeksVjezbe + 1, rez.Item1.ToString());
                 }
             }
         }
