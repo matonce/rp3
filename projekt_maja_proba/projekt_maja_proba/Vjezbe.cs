@@ -19,7 +19,7 @@ namespace projekt_maja_proba
 
         NumericUpDown numBrojRijeci = new NumericUpDown()
         {
-            Location = new Point(825, 150),
+            Location = new Point(730, 150),
             Maximum = new decimal(new int[] {50,0,0,0}),
             Minimum = new decimal(new int[] {1, 0, 0, 0 }),
             Name = "num_broj_rijeci",
@@ -118,7 +118,7 @@ namespace projekt_maja_proba
             | AnchorStyles.Right),
             Location = new Point(50, 130),
             Name = "flowLayoutPanel1",
-            Size = new Size(500, 250),
+            Size = new Size(450, 250),
             TabIndex = 11,
             Visible = false
         };
